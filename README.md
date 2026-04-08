@@ -1,52 +1,91 @@
-Beer-Quiche Signalling Model — Computational Appendix
+**Beer-Quiche Signalling Model: Computational Appendix**
+
 Splitting the Bill: A Signalling Model of Heterosexual Second-Date Decision-Making
 Morgan Smith · BASC0017 · University College London
 
-Overview
-This repository contains the Jupyter notebook (signalling_model_v2.ipynb) that generates the three computational figures — V1, V2, and V3 — referenced in Appendix B of the paper. These figures serve a purpose the closed-form derivations in Appendix A cannot: they extend the analytical results globally across the parameter space, quantify the economic magnitude of the equilibrium's predictions, and stress-test those predictions under stochastic, single-shot conditions that mirror the structure of real dating decisions.
+
+**Overview:**
+
+This repository contains the Jupyter notebook (signalling_model_v2.ipynb) that generates the three computational figures V1, V2, and V3 referenced in Appendix B of the paper. These figures serve a purpose that the closed-form derivations in Appendix A cannot: they extend the analytical results globally across the parameter space, quantify the economic magnitude of the equilibrium's predictions, and stress-test those predictions under stochastic, single-shot conditions that mirror the structure of real dating decisions.
+
 The analytical proofs establish that a two-zone Perfect Bayesian Equilibrium exists at the canonical parameterisation (k = 13, e = 20, p* ≈ 0.587). The computational figures ask a harder set of questions: Is this equilibrium fragile or robust? How large are the payoff gains from following the optimal strategy? And does the model's discrete two-zone prescription hold up when attractiveness is drawn randomly and decisions are made one at a time? V1, V2, and V3 answer these questions in turn.
 
-Figure V1 — Bifurcation Surface: Sensitivity of p* to Model Parameters
-What It Shows
-V1 maps the zone boundary p* across an 80 × 80 grid spanning the loss-aversion steepness parameter k ∈ [5, 22] and the embarrassment cost parameter e ∈ [10, 30]. The left panel renders this as a three-dimensional bifurcation surface; the right panel shows fixed-e cross-sections to isolate the marginal effect of k alone.
-The canonical parameterisation (k = 13, e = 20, shown as a highlighted point) sits comfortably within the separating-equilibrium region — the region of the (k, e) plane where Zone 2 is non-empty and the bill signal is decision-relevant for sufficiently attractive men.
-Why It Is Useful to the Paper
+**Figure V1: Bifurcation Surface**
+
+***What It Shows:***
+
+V1 maps the zone boundary p* across an 80 x 80 grid spanning the loss-aversion steepness parameter k ∈ [5, 22] and the embarrassment cost parameter e ∈ [10, 30]. The left panel renders this as a three-dimensional bifurcation surface; the right panel shows fixed-e cross-sections to isolate the marginal effect of k alone.
+The canonical parameterisation (k = 13, e = 20, shown as a highlighted point) sits comfortably within the separating-equilibrium region, which is the region of the (k, e) plane where Zone 2 is non-empty and the bill signal is decision-relevant for sufficiently attractive men.
+
+***Why It Is Useful to the Paper***
+
 The existence proof in Appendix A.6 demonstrates that p* ≈ 0.587 at the baseline calibration, but a single numerical result cannot establish whether this is a robust prediction or a knife-edge artefact of the specific parameter values chosen. V1 answers this directly.
-Two findings from the surface are of particular theoretical importance. First, the canonical point is not near any boundary of the separating-equilibrium region — the model would have to be dramatically mis-parameterised before the two-zone structure collapsed. This confirms that the qualitative prediction (bill-splitting is decision-relevant for above-average men, irrelevant for below-average men) is structurally stable rather than incidental.
-Second, and more substantively, V1 reveals a strong asymmetry in how the two parameters drive the equilibrium. Reducing k from 13 to 10 shifts p* rightward by approximately 0.19, compressing Zone 2 substantially. An equivalent proportional reduction in e shifts p* by less than 0.05. This finding — that k, the steepness of the prospect-theoretic loss-aversion effect embedded in α(p), is the dominant architectural parameter — cannot be established from the local comparative statics in A.8 alone, which only characterise the direction of movement. The bifurcation surface quantifies the magnitude globally and provides the empirical grounding for the paper's claim that the behavioural microfoundation (loss aversion over mercenary stigma) is the primary driver of the equilibrium's zone structure, rather than the payoff parameters v2, e, or r2.
+
+Two findings from the surface are of particular theoretical importance.
+
+First, the canonical point is not near any boundary of the separating-equilibrium region. The model would have to be dramatically mis-parameterised before the two-zone structure collapsed. This confirms that the qualitative prediction (bill-splitting is decision-relevant for above-average men, irrelevant for below-average men) is structurally stable rather than incidental.
+
+Second, V1 reveals a strong asymmetry in how the two parameters drive the equilibrium. Reducing k from 13 to 10 shifts p* rightward by approximately 0.19, compressing Zone 2 substantially. An equivalent proportional reduction in e shifts p* by less than 0.05. This finding, that k (the steepness of the prospect-theoretic loss-aversion effect embedded in α(p)) is the dominant architectural parameter, cannot be established from the local comparative statics in A.8 alone, which only characterise the direction of movement. The bifurcation surface quantifies the magnitude globally and provides the empirical grounding for the paper's claim that the behavioural microfoundation is the primary driver of the equilibrium's zone structure, rather than the payoff parameters v2, e, or r2.
+
 The critical threshold k ≈ 7.2, below which Zone 2 disappears entirely and the signal is never decision-relevant, is also visible as the left-hand cliff edge of the surface. This threshold represents the minimum degree of loss-aversion required for the model's screening mechanism to function, and its identification via V1 gives the behavioural assumption a precise, testable content.
 
-Figure V2 — EU Gain Landscape: The Value of Signal-Conditioning
-What It Shows
-V2 plots ΔEU(p, k) — the expected-utility gain from following the signal-optimal strategy over the naïve always-propose benchmark — as a function of both attractiveness p ∈ [0, 1] and steepness k. The left panel renders this as a three-dimensional surface at k = 13 (baseline); the right panel shows the landscape as a heatmap with the two equilibrium zones demarcated.
-Why It Is Useful to the Paper
+**Figure V2: EU Gain Landscape**
+
+***What It Shows***
+
+V2 plots ΔEU(p, k), the expected-utility gain from following the signal-optimal strategy over the naïve always-propose benchmark, as a function of both attractiveness p ∈ [0, 1] and steepness k. The left panel renders this as a three-dimensional surface at the baseline k = 13; the right panel shows the landscape as a heatmap with the two equilibrium zones demarcated.
+
+***Why It Is Useful to the Paper***
+
 The zone structure established in Appendix A.6 tells the reader when to condition on the bill signal (Zone 2, p ≥ p*) but not how much it matters to do so. A model that generates a theoretically clean partition is of limited practical value if the payoff gains from following the optimal rule are negligible in Zone 2 or trivially large throughout. V2 addresses this by mapping the economic significance of signal-conditioning across the full domain.
-Three features of V2 are directly relevant to the paper's argument. First, ΔEU is approximately zero throughout Zone 1, as it must be: in Zone 1 both signals warrant a proposal, so conditioning on the bill split costs and gains nothing. This serves as a consistency check that the simulation correctly implements the two-zone logic.
-Second, ΔEU rises monotonically as p increases beyond p*, confirming that the +4.69 utils payoff advantage verified analytically at p = 0.65 in Appendix A.7 is not an isolated point but part of a smooth, increasing surface. The payoff gain from reading a rejection correctly grows with attractiveness precisely because the decision threshold q*(p) rises with p — more attractive men face a higher threshold and therefore have more to lose from proposing after a rejection. The heatmap makes this gradient immediately legible to a reader in a way that a scalar numerical example cannot.
-Third, the k-dimension of the surface shows that the payoff gain is not only positive but increasing in the steepness of the loss-aversion effect. This echoes the finding from V1 — k is the dominant parameter — but here from the perspective of economic value rather than zone-boundary location. Together, V1 and V2 establish that k is both the principal determinant of when signal-conditioning matters and of how much it matters when it does.
+Three features of V2 are directly relevant to the paper's argument.
 
-Figure V3 — Monte Carlo Screening Efficiency (n = 10,000 Simulated Dates)
-What It Shows
-V3 simulates 10,000 independent first dates. In each simulation, male attractiveness p is drawn from a Beta(2.2, 2.2) distribution — a symmetric, bell-shaped distribution on [0, 1] that concentrates mass near the centre while allowing variation across the full attractiveness range. The woman's type is then drawn from the prior π(p), her signal from α(p) or β(p) conditional on type, and the man's decision is taken under both the signal-optimal rule and the naïve always-propose rule.
-The figure comprises four panels: (a) screening metrics (precision, recall, F₁) plotted against k; (b) the posterior distribution of μ(I | s) separated by signal and woman's type; (c) the precision-recall trade-off across embarrassment cost levels; and (d) a net match-rate heatmap across (p, k) showing the gain in correct matches from the optimal strategy over the naïve one.
-Why It Is Useful to the Paper
-The analytical derivations in Appendix A work within a deterministic expected-utility framework: they characterise the optimal decision rule for a single agent with known p who faces the population distributions α(p) and β(p). But actual dating decisions are single-shot events — a man with p = 0.65 does not play the game 10,000 times and converge to the expected value. He plays it once, and the woman is either interested or not. V3 asks whether the model's prescriptions still deliver systematic gains under these conditions.
-The headline finding — that the signal-optimal strategy achieves an F₁ score of approximately 0.84 versus 0.72 for always-propose — quantifies the aggregate improvement in matching quality from following the zone-conditional rule across the realistic distribution of attractiveness levels. This 12-point F₁ advantage is a practically meaningful improvement, and because it is computed over a Beta(2.2, 2.2) prior that weights the interior of [0, 1] heavily, it is not driven by extreme attractiveness values.
-Panel (d) is of particular methodological value: the net match-rate heatmap recovers the two-zone partition independently of the closed-form derivations. By directly counting correct and incorrect proposals in the simulation, rather than computing expected utilities from the model's equations, V3 provides an entirely separate validation that the zone boundary falls near p* ≈ 0.587 and that Zone 2 is where the optimal strategy earns its gains. The fact that a data-driven simulation arrives at the same qualitative structure as the analytical proof substantially strengthens confidence in the model's predictions.
-Panel (b) is also worth noting for interpretive purposes. The posterior distributions of μ(I | A) and μ(I | R) across simulated dates show substantial overlap near the zone boundary, making it visually clear why the model prescribes always-propose in Zone 1: when p is low, the posterior following rejection is still high enough that the signal is not informative enough to warrant restraint. The separation between the posterior distributions grows markedly in Zone 2, providing an intuitive visual account of why signal-conditioning becomes valuable precisely where the model says it does.
+First, ΔEU is approximately zero throughout Zone 1, as it must be. In Zone 1 both signals warrant a proposal, so conditioning on the bill split costs and gains nothing. This serves as a consistency check that the simulation correctly implements the two-zone logic.
 
-Reproducing the Figures
-All three figures are generated by running the cells in signalling_model_v2.ipynb sequentially. V3 involves a Monte Carlo sweep and takes approximately 60–90 seconds to execute.
+Second, ΔEU rises monotonically as p increases beyond p*, confirming that the +4.69 utils payoff advantage verified analytically at p = 0.65 in Appendix A.7 is not an isolated point but part of a smooth, increasing surface. The payoff gain from reading a rejection correctly grows with attractiveness precisely because the decision threshold q*(p) rises with p: more attractive men face a higher threshold and therefore have more to lose from proposing after a rejection. The heatmap makes this gradient immediately legible in a way that a scalar numerical example cannot.
+
+Third, the k-dimension of the surface shows that the payoff gain is not only positive but increasing in the steepness of the loss-aversion effect. This echoes the finding from V1, but here from the perspective of economic value rather than zone-boundary location. Together, V1 and V2 establish that k is both the principal determinant of when signal-conditioning matters and of how much it matters when it does.
+
+**Figure V3: Monte Carlo Screening Efficiency (n = 10,000)**
+
+***What It Shows***
+
+V3 simulates 10,000 independent first dates. In each simulation, male attractiveness p is drawn from a Beta(2.2, 2.2) distribution, a symmetric bell-shaped distribution on [0, 1] that concentrates mass near the centre while allowing variation across the full attractiveness range. The woman's type is then drawn from the prior π(p), her signal from α(p) or β(p) conditional on type, and the man's decision is taken under both the signal-optimal rule and the naïve always-propose rule.
+
+***The figure comprises four panels:***
+
+PanelContents(a)Screening metrics (precision, recall, F₁) plotted against k(b)Posterior distribution of μ(I | s) separated by signal and woman's type(c)Precision-recall trade-off across embarrassment cost levels(d)Net match-rate heatmap across (p, k): gain from optimal over naïve strategy
+
+***Why It Is Useful to the Paper***
+
+The analytical derivations in Appendix A work within a deterministic expected-utility framework. They characterise the optimal decision rule for a single agent with known p who faces the population distributions α(p) and β(p). But actual dating decisions are single-shot events: a man with p = 0.65 does not play the game 10,000 times and converge to the expected value. He plays it once, and the woman is either interested or not. V3 asks whether the model's prescriptions still deliver systematic gains under these conditions.
+
+The headline finding, that the signal-optimal strategy achieves an F₁ score of approximately 0.84 versus 0.72 for always-propose, quantifies the aggregate improvement in matching quality from following the zone-conditional rule across a realistic distribution of attractiveness levels. This 12-point F₁ advantage is practically meaningful and, because it is computed over a Beta(2.2, 2.2) prior that weights the interior of [0, 1] heavily, it is not driven by extreme attractiveness values.
+
+Panel (d) is of particular methodological value. The net match-rate heatmap recovers the two-zone partition independently of the closed-form derivations. By directly counting correct and incorrect proposals in the simulation rather than computing expected utilities from the model's equations, V3 provides an entirely separate validation that the zone boundary falls near p* ≈ 0.587 and that Zone 2 is where the optimal strategy earns its gains. The fact that a data-driven simulation arrives at the same qualitative structure as the analytical proof substantially strengthens confidence in the model's predictions.
+
+Panel (b) illuminates why the model prescribes always-propose in Zone 1. The posterior distributions of μ(I | A) and μ(I | R) show substantial overlap near the zone boundary: when p is low, the posterior following rejection is still high enough that the signal is not informative enough to warrant restraint. The separation between the two distributions grows markedly in Zone 2, providing an intuitive visual account of why signal-conditioning becomes valuable precisely where the model says it does.
+
+**Reproducing the Figures**
+
+Run the cells in signalling_model_v2.ipynb sequentially. Figure V3 involves a Monte Carlo sweep and takes approximately 60 to 90 seconds to execute.
+
 Dependencies: numpy, matplotlib, seaborn, scipy
-To reproduce at publication resolution, set savefig.dpi = 600 in the rcParams cell and "text.usetex": True (requires TeX Live or MiKTeX).
-Canonical Parameter Values
-ParameterValueSourcev2 (match payoff)12Paper §2e (embarrassment cost)20Paper §2r2 (regret parameter)8Paper §2k (loss-aversion steepness)13Calibrated; see Appendix A.2ALPHA_INT (α intercept)6.706Calibrated to Frederick & Lever (2015): α(0.5) = 0.57γ anchorγ(0.5) ≈ 0.20Mongeau et al. (2004)π(p) priormin(0.95, 0.60 + 0.40p)Anchored at π(0.5) = 0.80; ZipDo (2025)Attractiveness prior (V3)Beta(2.2, 2.2)Bell-shaped, support [0,1]Monte Carlo n10,000—
 
-Relationship to Appendix A
+To reproduce at publication resolution, set savefig.dpi = 600 in the rcParams cell and "text.usetex": True (requires TeX Live or MiKTeX).
+
+**Canonical Parameter Values**
+
+ParameterValueSourcev2 (match payoff)12Paper §2e (embarrassment cost)20Paper §2r2 (regret parameter)8Paper §2k (loss-aversion steepness)13Calibrated; see Appendix A.2ALPHA_INT (α intercept)6.706Calibrated to Frederick & Lever (2015): α(0.5) = 0.57γ anchorγ(0.5) ≈ 0.20Mongeau et al. (2004)π(p) priormin(0.95, 0.60 + 0.40p)Anchored at π(0.5) = 0.80; ZipDo (2025)Attractiveness prior (V3)Beta(2.2, 2.2)Bell-shaped, support [0,1]Monte Carlo n10,000--
+
+**Relationship to Appendix A**
+
 The figures complement rather than duplicate the analytical appendix. Appendix A establishes existence, uniqueness, monotonicity, and numerical verification at a single point (p = 0.65). The figures extend these results in three directions that closed-form analysis cannot reach:
 
 V1 establishes global robustness of the zone structure across the parameter space and identifies k as the dominant architectural driver.
+
 V2 establishes the economic magnitude of the payoff gains and confirms that signal-conditioning is most valuable precisely where the analytical model says it should be.
-V3 confirms that the equilibrium predictions are not an artifact of the expected-utility framework but survive translation to stochastic, single-shot realisations drawn from a realistic attractiveness distribution.
+
+V3 confirms that the equilibrium predictions survive translation to stochastic, single-shot realisations drawn from a realistic attractiveness distribution, independently validating the zone structure from simulation data alone.
 
 Together they form a complete empirical validation of the analytical model.
