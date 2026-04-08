@@ -1,7 +1,8 @@
 **Beer-Quiche Signalling Model: Computational Appendix**
 
 Splitting the Bill: A Signalling Model of Heterosexual Second-Date Decision-Making
-Morgan Smith · BASC0017 · University College London
+
+*Morgan Smith · BASC0017 · University College London*
 
 
 **Overview:**
